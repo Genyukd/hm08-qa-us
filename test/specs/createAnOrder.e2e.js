@@ -13,8 +13,6 @@ describe('Create an order', () => {
 
     it('should choose supportive plan', async () => {
         await browser.url(`/`)
-        await browser.deleteCookies();
-        await browser.execute('localStorage.clear()');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.chooseSupportivePlan();
         const activeTariff = await $(page.activeTariff).getText();
@@ -23,8 +21,6 @@ describe('Create an order', () => {
 
     it('should fill in the phone number', async () => {
         await browser.url(`/`)
-        await browser.deleteCookies();
-        await browser.execute('localStorage.clear()');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         const phoneNumber = helper.getPhoneNumber("+1");
         await page.submitPhoneNumber(phoneNumber);
@@ -33,8 +29,6 @@ describe('Create an order', () => {
 
     it('should add a credit card', async () => {
         await browser.url(`/`)
-        await browser.deleteCookies();
-        await browser.execute('localStorage.clear()');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         const cardNumber = helper.getCardNumber();
         const cardCode = helper.getCardCode();
@@ -45,8 +39,6 @@ describe('Create an order', () => {
 
    it('should write a message to the driver', async () => {
         await browser.url(`/`)
-        await browser.deleteCookies();
-        await browser.execute('localStorage.clear()');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.writeMessage('Bring me a pint of beer!');
         const messageField = await $(page.messageField);
@@ -55,8 +47,6 @@ describe('Create an order', () => {
 
     it('should order a blanket and handkerchiefs', async () => {
         await browser.url(`/`)
-        await browser.deleteCookies();
-        await browser.execute('localStorage.clear()');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.chooseSupportivePlan();
         await page.orderBlanketAndHandkerchiefs();
@@ -66,8 +56,6 @@ describe('Create an order', () => {
 
     it('should order 2 ice creams', async () => {
         await browser.url(`/`)
-        await browser.deleteCookies();
-        await browser.execute('localStorage.clear()');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.chooseSupportivePlan();
         await page.orderTwoIceCreams();
@@ -79,8 +67,6 @@ describe('Create an order', () => {
 
     it('should check that the car search modal appears', async () => {
         await browser.url(`/`)
-        await browser.deleteCookies();
-        await browser.execute('localStorage.clear()');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.chooseSupportivePlan();
         const phoneNumber = helper.getPhoneNumber("+1");
@@ -99,8 +85,6 @@ describe('Create an order', () => {
 
     it('should check for the driver info to appear', async () => {
         await browser.url(`/`)
-        await browser.deleteCookies();
-        await browser.execute('localStorage.clear()');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.chooseSupportivePlan();
         const phoneNumber = helper.getPhoneNumber("+1");

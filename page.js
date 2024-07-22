@@ -42,7 +42,6 @@ module.exports = {
         await fromField.setValue(from);
         const toField = await $(this.toField);
         await toField.setValue(to);
-        //check correct values of From and To fields
         await expect(fromField).toHaveValue(from);
         await expect(toField).toHaveValue(to);
         const callATaxiButton = await $(this.callATaxiButton);
@@ -54,7 +53,6 @@ module.exports = {
         const supportivePlanButton = await $(this.supportivePlanButton);
         await supportivePlanButton.waitForDisplayed;
         await supportivePlanButton.click();
-        //check that Supportive Plan is selected
         const activeTariff = await $(this.activeTariff).getText();
         await expect(activeTariff).toContain('Supportive');
     },
@@ -102,7 +100,6 @@ module.exports = {
         await paymentMethodModal.waitForDisplayed();
         const closeButton = await $(this.closeButton);
         await closeButton.click();
-        //check that card was added
         const addedCard = await $(this.addedCard);
         await expect(addedCard).toBeExisting();
     },
@@ -110,7 +107,6 @@ module.exports = {
     writeMessage: async function(message) {
         const messageField = await $(this.messageField);
         await messageField.setValue(message);
-        //check that message was written
         await expect(messageField).toHaveValue(message);
     },
 
@@ -118,7 +114,6 @@ module.exports = {
         const orderBlanketButton = await $(this.orderBlanketButton);
         await orderBlanketButton.click();
         const orderBlanketSwitch = await $(this.orderBlanketSwitch);
-        //check that Blanket and Handkerchiefs are added
         await browser.pause(1000);
         await expect(orderBlanketSwitch).toBeSelected();
     },
@@ -127,7 +122,6 @@ module.exports = {
         const addOneIceCream = await $(this.addOneIceCream);
         await addOneIceCream.click();
         await addOneIceCream.click();
-        //check that 2 Ice Creams are added
         const addedIceCreams = await $(this.addedIceCreams);
         await expect(addedIceCreams).toBeExisting();
         const iceCreamValue = await addedIceCreams.getText();
